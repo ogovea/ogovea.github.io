@@ -5,69 +5,344 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wanderson Lima | Economista, SQL, Python e R</title>
 <meta name="description" content="Portfólio de Wanderson Lima, economista que estuda e pratica SQL, Python e R para análise de dados, finanças e controladoria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f2f5f1;--surface:#fff;--ink:#15231d;--muted:#51645a;--line:#cfd9d1;--brand:#0f4c3a;--brand-ink:#fff;--mark:#f1c40f;--code:#10201a;--code-ink:#dff3e8}
-@media (prefers-color-scheme:dark){:root{--bg:#0e1612;--surface:#15211b;--ink:#e8efe9;--muted:#9db0a4;--line:#2a3b32;--brand:#5fd0a2;--brand-ink:#0e1612;--code:#07100c;--code-ink:#dff3e8}}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;font-size:1.0625rem}
-.wrap{max-width:900px;margin:0 auto;padding:0 1.25rem}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.15;margin:0}
-a{color:var(--brand)}
-a:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
-header.top{padding:1rem 0;border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.logo{font-family:Georgia,serif;font-weight:700;text-decoration:none;color:var(--ink)}
-nav{display:flex;flex-wrap:wrap;gap:.2rem 1.1rem}
-nav a{text-decoration:none;color:var(--muted);font-size:.95rem}
-nav a:hover{color:var(--ink)}
-.hero{padding:4.5rem 0 3.5rem}
-.hero h1{font-size:clamp(2.4rem,8vw,4.4rem);letter-spacing:-.02em;max-width:15ch}
-.hero p.lead{font-size:1.2rem;max-width:36rem;margin:1.5rem 0 2rem;color:var(--muted)}
-.btns{display:flex;gap:.75rem;flex-wrap:wrap}
-.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:6px;text-decoration:none;font-weight:600;border:2px solid var(--brand)}
-.btn.main{background:var(--brand);color:var(--brand-ink)}
-.btn.alt{color:var(--brand)}
-.btn:hover{opacity:.88}
-section{padding:3rem 0;border-top:1px solid var(--line)}
-section h2{font-size:1.9rem;margin-bottom:1rem}
-section p{max-width:40rem;margin:0 0 1rem}
-.intro{color:var(--muted)}
-.lang{display:grid;grid-template-columns:1fr 1.25fr;gap:1.5rem;padding:1.6rem 0;border-bottom:1px solid var(--line);align-items:start}
-.lang:first-of-type{border-top:2px solid var(--ink);margin-top:1.5rem}
-.lang h3{font-size:1.6rem}
-.tag{display:inline-block;margin:.5rem 0;padding:.15rem .6rem;border-radius:999px;border:1px solid var(--brand);color:var(--brand);font-size:.85rem;font-weight:600}
-.lang p{margin:.3rem 0 0;color:var(--muted);font-size:1rem}
-pre{margin:0;background:var(--code);color:var(--code-ink);border-radius:8px;padding:1rem 1.1rem;overflow-x:auto;font:.88rem/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-.note{font-size:.9rem;color:var(--muted);margin-top:1rem}
-.tools{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.4rem 2rem}
-.tools li{padding:.6rem 0;border-bottom:1px solid var(--line)}
-.tools b{display:block}
-.tools span{color:var(--muted);font-size:.95rem}
-.ledger{width:100%;border-collapse:collapse}
-.ledger td{padding:.9rem .75rem .9rem 0;border-bottom:1px solid var(--line);vertical-align:top}
-.ledger td:first-child{white-space:nowrap;color:var(--muted);font-size:.95rem}
-.ledger small{display:block;color:var(--muted);margin-top:.25rem}
-.scroll{overflow-x:auto}
-.soon{border:2px dashed var(--line);border-radius:8px;padding:1.4rem;background:var(--surface);max-width:40rem}
-.soon p{margin:0}
-footer{padding:2rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
-@media (max-width:720px){.lang{grid-template-columns:1fr}nav{gap:.2rem .9rem}.hero{padding-top:3rem}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root {
+  --bg: #070d19;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #0d2347 0%, #060b14 75%);
+  --surface: #0f1c33;
+  --surface-border: #1e3256;
+  --surface-hover: #162747;
+  --ink: #f0f6ff;
+  --muted: #94a3b8;
+  --line: #1e293b;
+  --brand: #0070f3;
+  --brand-light: #38bdf8;
+  --brand-gradient: linear-gradient(135deg, #0070f3 0%, #00d4ff 100%);
+  --brand-ink: #ffffff;
+  --code-bg: #09111e;
+  --code-border: #1b2a47;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  color: #ffffff;
+}
+
+a { color: var(--brand-light); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Header & Nav */
+header.top {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 13, 25, 0.85);
+}
+
+header.top .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo span {
+  color: var(--brand-light);
+}
+
+nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+nav a:hover { color: #fff; text-decoration: none; }
+
+/* Hero Section */
+.hero {
+  padding: 5rem 0 4rem;
+  text-align: left;
+  max-width: 800px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(0, 112, 243, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 99px;
+  color: var(--brand-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.hero h1 span {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p.lead {
+  font-size: 1.18rem;
+  margin: 1.5rem 0 2rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn.main {
+  background: var(--brand-gradient);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 112, 243, 0.4);
+}
+.btn.main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 112, 243, 0.6);
+}
+
+.btn.alt {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border-color: var(--surface-border);
+}
+.btn.alt:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--brand-light);
+  transform: translateY(-2px);
+}
+
+/* Sections */
+section {
+  padding: 4rem 0;
+  border-top: 1px solid var(--line);
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.intro { color: var(--muted); margin-bottom: 2rem; }
+
+/* Grid de Linguagens */
+.lang-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.lang {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  align-items: center;
+}
+
+.lang h3 { font-size: 1.5rem; color: #fff; }
+
+.tag {
+  display: inline-block;
+  margin: 0.5rem 0;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(0, 112, 243, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: var(--brand-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.lang p { margin: 0.5rem 0 0; color: #cbd5e1; font-size: 0.95rem; }
+
+pre {
+  margin: 0;
+  background: var(--code-bg);
+  color: #e2e8f0;
+  border: 1px solid var(--code-border);
+  border-radius: 8px;
+  padding: 1.1rem;
+  overflow-x: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* Ferramentas */
+.tools {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.tools li {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 10px;
+}
+
+.tools b { display: block; color: #fff; font-size: 1.05rem; margin-bottom: 0.25rem; }
+.tools span { color: var(--muted); font-size: 0.9rem; }
+
+/* Tabelas (Experiência e Formação) */
+.scroll { overflow-x: auto; margin-top: 1.5rem; }
+
+.ledger {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.75rem;
+}
+
+.ledger tr {
+  background: var(--surface);
+}
+
+.ledger td {
+  padding: 1.2rem 1.25rem;
+  border-top: 1px solid var(--surface-border);
+  border-bottom: 1px solid var(--surface-border);
+  vertical-align: top;
+}
+
+.ledger td:first-child {
+  border-left: 1px solid var(--surface-border);
+  border-radius: 10px 0 0 10px;
+  white-space: nowrap;
+  color: var(--brand-light);
+  font-weight: 600;
+  font-size: 0.9rem;
+  width: 180px;
+}
+
+.ledger td:last-child {
+  border-right: 1px solid var(--surface-border);
+  border-radius: 0 10px 10px 0;
+  color: #e2e8f0;
+}
+
+.ledger strong { color: #fff; font-size: 1.05rem; }
+.ledger small { display: block; color: var(--muted); margin-top: 0.4rem; font-size: 0.9rem; }
+
+/* Bloco de Projetos Futuros */
+.soon {
+  border: 1px dashed var(--surface-border);
+  border-radius: 12px;
+  padding: 2rem;
+  background: rgba(15, 28, 51, 0.5);
+  margin-top: 1.5rem;
+}
+.soon p { margin: 0; color: #cbd5e1; }
+
+/* Footer */
+footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .lang { grid-template-columns: 1fr; }
+  nav { gap: 0.5rem 1rem; }
+  .hero { padding: 3.5rem 0 2.5rem; }
+  .ledger td:first-child { width: auto; }
+}
 </style>
 </head>
 <body>
+
 <header class="top"><div class="wrap">
-  <a class="logo" href="#inicio">Wanderson Lima</a>
+  <a class="logo" href="#inicio">📊 <span>Wanderson Lima</span></a>
   <nav aria-label="Seções">
-    <a href="#linguagens">Linguagens</a><a href="#ferramentas">Ferramentas</a><a href="#experiencia">Experiência</a><a href="#projetos">Projetos</a><a href="#contato">Contato</a>
+    <a href="#linguagens">Linguagens</a>
+    <a href="#ferramentas">Ferramentas</a>
+    <a href="#experiencia">Experiência</a>
+    <a href="#formacao">Formação</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
   </nav>
 </div></header>
 
 <main id="inicio"><div class="wrap">
+  
   <div class="hero">
-    <h1>Economista que analisa dados com SQL, Python e R</h1>
-    <p class="lead">Wanderson Lima, de Crato, Ceará. Bacharel em Economia (URCA, 2025), com experiência em rotinas financeiras e interesse em controladoria, auditoria e análise de dados.</p>
+    <div class="hero-badge">Economia & Data Analytics</div>
+    <h1>Wanderson <span>Lima</span></h1>
+    <p class="lead">Economista pela URCA (2025), de Crato - CE. Especializado em rotinas financeiras, controladoria, auditoria e análise de dados utilizando SQL, Python e R para transformar dados em decisões estratégicas.</p>
     <div class="btns">
       <a class="btn main" href="mailto:wandersontumblr@gmail.com">Enviar e-mail</a>
       <a class="btn alt" href="https://www.linkedin.com/in/franciscowandersondesousalima" target="_blank" rel="noopener">LinkedIn</a>
@@ -76,95 +351,103 @@ footer{padding:2rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);f
   </div>
 
   <section id="linguagens">
-    <h2>Linguagens que estudo e pratico</h2>
-    <p class="intro">A mesma pergunta, "quanto foi gasto em cada categoria?", respondida em três linguagens. Os códigos são exemplos ilustrativos.</p>
+    <h2>Linguagens de Análise</h2>
+    <p class="intro">A mesma pergunta, "quanto foi gasto em cada categoria?", respondida em três linguagens diferentes:</p>
 
-    <div class="lang">
-      <div>
-        <h3>SQL</h3><span class="tag">Em estudo</span>
-        <p>Consultas para buscar, filtrar e resumir dados em bancos relacionais.</p>
-      </div>
+    <div class="lang-container">
+      <div class="lang">
+        <div>
+          <h3>SQL</h3><span class="tag">Em estudo</span>
+          <p>Consultas para buscar, filtrar e resumir dados em bancos relacionais.</p>
+        </div>
 <pre><code>SELECT categoria, SUM(valor) AS total
 FROM despesas
 GROUP BY categoria
 ORDER BY total DESC;</code></pre>
-    </div>
-
-    <div class="lang">
-      <div>
-        <h3>Python</h3><span class="tag">Em estudo, curso de 72h</span>
-        <p>Análise e tratamento de dados com pandas, voltado a finanças.</p>
       </div>
+
+      <div class="lang">
+        <div>
+          <h3>Python</h3><span class="tag">Em estudo • 72h</span>
+          <p>Análise e tratamento de dados com pandas, voltado a finanças.</p>
+        </div>
 <pre><code>import pandas as pd
 
 df = pd.read_csv("despesas.csv")
 (df.groupby("categoria")["valor"]
    .sum()
    .sort_values(ascending=False))</code></pre>
-    </div>
-
-    <div class="lang">
-      <div>
-        <h3>R</h3><span class="tag">Conhecimento e prática</span>
-        <p>Análise e visualização de dados, com relatórios que misturam texto, código e gráficos.</p>
       </div>
+
+      <div class="lang">
+        <div>
+          <h3>R</h3><span class="tag">Conhecimento e Prática</span>
+          <p>Análise e visualização de dados, com relatórios que misturam texto, código e gráficos.</p>
+        </div>
 <pre><code>library(dplyr)
 
 despesas |&gt;
   group_by(categoria) |&gt;
   summarise(total = sum(valor)) |&gt;
   arrange(desc(total))</code></pre>
+      </div>
     </div>
   </section>
 
   <section id="ferramentas">
-    <h2>Outras ferramentas</h2>
+    <h2>Outras Ferramentas</h2>
     <ul class="tools">
-      <li><b>Excel</b><span>Planilhas financeiras e controles, no dia a dia profissional</span></li>
-      <li><b>Power BI</b><span>Em estudo, curso de 72h</span></li>
-      <li><b>Sistema Domínio (Thomson Reuters)</b><span>Lançamentos financeiros e contábeis</span></li>
-      <li><b>Git e GitHub</b><span>Versionamento e publicação dos projetos</span></li>
-      <li><b>Pacote Office</b><span>Curso de 140h, da base ao avançado</span></li>
+      <li><b>Excel</b><span>Planilhas financeiras e controles no dia a dia profissional.</span></li>
+      <li><b>Power BI</b><span>Em estudo, curso de 72h.</span></li>
+      <li><b>Sistema Domínio (Thomson Reuters)</b><span>Lançamentos financeiros e contábeis.</span></li>
+      <li><b>Git e GitHub</b><span>Versionamento e publicação de projetos.</span></li>
+      <li><b>Pacote Office</b><span>Curso de 140h, do básico ao avançado.</span></li>
     </ul>
   </section>
 
   <section id="experiencia">
-    <h2>Experiência</h2>
+    <h2>Experiência Profissional</h2>
     <div class="scroll"><table class="ledger"><tbody>
-      <tr><td>Jun/2026 até hoje</td><td><strong>Auxiliar administrativo de obras</strong>, Detex<small>Controle de ponto e documentação, compras e materiais, notas fiscais e solicitações de pagamento.</small></td></tr>
-      <tr><td>Jan/2025 a Mar/2026</td><td><strong>Assistente financeiro júnior</strong>, Bitribut Recuperação Tributária<small>Conciliação bancária diária, contas a pagar, relatórios de contas a receber e inadimplência, lançamentos no Domínio.</small></td></tr>
-      <tr><td>Fev/2024 a Dez/2024</td><td><strong>Estágio financeiro e administrativo</strong>, Universidade Regional do Cariri<small>Apoio ao setor financeiro, planilhas e relatórios, prestação de contas.</small></td></tr>
-      <tr><td>Ago/2018 a Dez/2018</td><td><strong>Estágio em TI (help desk)</strong>, Inforprint<small>Suporte a usuários, manutenção de computadores e controle de ativos de TI.</small></td></tr>
+      <tr><td>Jun/2026 – Atual</td><td><strong>Auxiliar Administrativo de Obras</strong>, Detex<small>Controle de ponto e documentação, compras e materiais, notas fiscais e solicitações de pagamento.</small></td></tr>
+      <tr><td>Jan/2025 – Mar/2026</td><td><strong>Assistente Financeiro Júnior</strong>, Bitribut Recuperação Tributária<small>Conciliação bancária diária, contas a pagar, relatórios de contas a receber e inadimplência, lançamentos no Domínio.</small></td></tr>
+      <tr><td>Fev/2024 – Dez/2024</td><td><strong>Estágio Financeiro e Administrativo</strong>, Universidade Regional do Cariri<small>Apoio ao setor financeiro, planilhas e relatórios, prestação de contas.</small></td></tr>
+      <tr><td>Ago/2018 – Dez/2018</td><td><strong>Estágio em TI (Help Desk)</strong>, Inforprint<small>Suporte a usuários, manutenção de computadores e controle de ativos de TI.</small></td></tr>
     </tbody></table></div>
   </section>
 
   <section id="formacao">
-    <h2>Formação</h2>
+    <h2>Formação & Certificações</h2>
     <div class="scroll"><table class="ledger"><tbody>
       <tr><td>2025</td><td><strong>Bacharelado em Ciências Econômicas</strong>, Universidade Regional do Cariri</td></tr>
-      <tr><td>Em andamento</td><td><strong>Power BI para BI e Data Science</strong>, 72h</td></tr>
-      <tr><td>Em andamento</td><td><strong>Fundamentos de Python para Análise de Dados e Data Science</strong>, 72h</td></tr>
-      <tr><td>Concluído</td><td><strong>Assistente de Contabilidade</strong>, 200h, IF do Rio Grande do Sul</td></tr>
-      <tr><td>Concluído</td><td><strong>Microsoft Office, básico ao avançado</strong>, 140h, Fundação Bradesco</td></tr>
-      <tr><td>Concluído</td><td><strong>Ensino Médio e Técnico em Informática</strong>, 1540h, E.E.E.P. Gov. Virgílio Távora</td></tr>
+      <tr><td>Em andamento</td><td><strong>Power BI para BI e Data Science</strong> (72h)</td></tr>
+      <tr><td>Em andamento</td><td><strong>Fundamentos de Python para Análise de Dados e Data Science</strong> (72h)</td></tr>
+      <tr><td>Concluído</td><td><strong>Assistente de Contabilidade</strong> (200h), IF do Rio Grande do Sul</td></tr>
+      <tr><td>Concluído</td><td><strong>Microsoft Office, Básico ao Avançado</strong> (140h), Fundação Bradesco</td></tr>
+      <tr><td>Concluído</td><td><strong>Ensino Médio e Técnico em Informática</strong> (1540h), E.E.E.P. Gov. Virgílio Távora</td></tr>
     </tbody></table></div>
   </section>
 
   <section id="projetos">
     <h2>Projetos</h2>
-    <div class="soon"><p>Os primeiros projetos, com análise de dados financeiros e bases públicas em R, Python e SQL, serão publicados aqui. Acompanhe no <a href="https://github.com/wandersondslima" target="_blank" rel="noopener">GitHub</a>.</p></div>
+    <div class="soon">
+      <p>Os primeiros projetos, com análise de dados financeiros e bases públicas em R, Python e SQL, serão publicados em breve. Acompanhe as novidades diretamente no meu <a href="https://github.com/wandersondslima" target="_blank" rel="noopener">GitHub</a>.</p>
+    </div>
   </section>
 
   <section id="contato">
     <h2>Contato</h2>
-    <p>Estou aberto a vagas de entrada em auditoria, controles internos, controladoria e análise de dados.</p>
+    <p class="intro">Estou aberto a oportunidades em auditoria, controles internos, controladoria e análise de dados.</p>
     <div class="btns">
       <a class="btn main" href="mailto:wandersontumblr@gmail.com">wandersontumblr@gmail.com</a>
       <a class="btn alt" href="https://www.linkedin.com/in/franciscowandersondesousalima" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </section>
+
 </div></main>
 
-<footer><div class="wrap">© 2026 Wanderson Lima. Crato, Ceará, Brasil.</div></footer>
+<footer>
+  <div class="wrap">© 2026 Wanderson Lima. Crato, Ceará, Brasil.</div>
+</footer>
+
 </body>
 </html>
