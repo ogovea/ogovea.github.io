@@ -100,7 +100,7 @@ nav a {
 }
 nav a:hover { color: var(--brand); }
 
-/* Hero Section */
+/* Hero Section com Foto Redonda */
 .hero {
   padding: 4.5rem 0 3.5rem;
   display: grid;
@@ -132,22 +132,24 @@ nav a:hover { color: var(--brand); }
   justify-content: center;
 }
 
-.profile-pic-card {
-  width: 100%;
-  max-width: 360px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  position: relative;
+/* Estilo da Foto Redonda com Fundo Decorativo */
+.profile-round-container {
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(135deg, #059669 0%, #34d399 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 30px rgba(5, 150, 105, 0.15);
 }
 
-.profile-pic-card img {
-  width: 100%;
-  height: 380px;
+.profile-round-container img {
+  width: 266px;
+  height: 266px;
+  border-radius: 50%;
   object-fit: cover;
-  border-radius: 14px;
+  border: 4px solid #ffffff;
 }
 
 .btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
@@ -232,32 +234,34 @@ section h2 {
   font-size: 0.9rem;
 }
 
-/* Métricas / Impacto */
-.metrics-grid {
+/* Habilidades Técnicas com Ícones (Como na imagem) */
+.tech-icons-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
   margin-top: 1.5rem;
 }
 
-.metric-card {
+.tech-card {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 1.8rem;
+  border-radius: 12px;
+  padding: 1.2rem;
   text-align: center;
+  transition: transform 0.2s;
 }
 
-.metric-card h3 {
-  font-size: 2.2rem;
-  color: var(--brand);
-  margin-bottom: 0.3rem;
+.tech-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand);
 }
 
-.metric-card p {
-  color: var(--muted);
-  font-size: 0.9rem;
-  margin: 0;
+.tech-card span {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin-top: 0.5rem;
 }
 
 /* Linguagens / Código */
@@ -374,7 +378,7 @@ footer {
   </a>
   <nav aria-label="Seções">
     <a href="#sobre">Sobre</a>
-    <a href="#destaques">Destaques</a>
+    <a href="#habilidades">Habilidades</a>
     <a href="#linguagens">Linguagens</a>
     <a href="#experiencia">Experiências</a>
     <a href="#formacao">Formação</a>
@@ -386,147 +390,9 @@ footer {
   
   <div class="hero">
     <div class="hero-content">
-      <h1>Construindo soluções com dados, economia e <span>impacto social</span>.</h1>
-      <p class="lead">Sou Francisco Wanderson, economista formado pela URCA, com experiência em análise de dados, gestão financeira e desenvolvimento regional.</p>
+      <h1>Economista que analisa dados com <span>SQL, Python e R</span>.</h1>
+      <p class="lead">Francisco Wanderson De Sousa Lima, de Crato, Ceará. Bacharel em Economia (URCA, 2025), com experiência em rotinas financeiras e interesse em controladoria, auditoria e análise de dados.</p>
       <div class="btns">
-        <a class="btn main" href="#projetos">Ver Projetos</a>
-        <a class="btn alt" href="mailto:wandersontumblr@gmail.com">Baixar CV</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <div class="profile-pic-card">
-        <!-- Substitua 'perfil.jpg' pelo nome exato da foto que você subir no GitHub -->
-        <img src="perfil.jpg" alt="Francisco Wanderson De Sousa Lima" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'">
-      </div>
-    </div>
-  </div>
-
-  <section id="sobre">
-    <h2>👤 Sobre Mim</h2>
-    <div class="about-grid">
-      <div class="card">
-        <p>Graduado em Ciências Econômicas pela Universidade Regional do Cariri (URCA), atuo na área administrativa e financeira, com forte foco em dados, políticas públicas e desenvolvimento regional.</p>
-        <p>Minha trajetória une pesquisas acadêmicas rigorosas, experiência profissional em conciliações e rotinas contábeis, e constante busca por evolução tecnológica através de ferramentas modernas de análise.</p>
-      </div>
-      <div class="card">
-        <div class="skills-tags">
-          <div class="skill-row">📊 Economia</div>
-          <div class="skill-row">💻 Análise de Dados</div>
-          <div class="skill-row">💰 Gestão Financeira</div>
-          <div class="skill-row">📋 Políticas Públicas</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="destaques">
-    <h2>🏆 Destaques do Meu Trabalho</h2>
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <h3>+85,7%</h3>
-        <p>Evolução do crédito do BNB (2014–2023)</p>
-      </div>
-      <div class="metric-card">
-        <h3>+3,3 milhões</h3>
-        <p>Pessoas atendidas pelo BNB em 2023</p>
-      </div>
-      <div class="metric-card">
-        <h3>+260%</h3>
-        <p>Crescimento do Agroamigo (2014–2023)</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="linguagens">
-    <h2>💻 Habilidades Técnicas & Códigos</h2>
-    <p style="color: var(--muted); margin-bottom: 1.5rem;">A mesma pergunta, "quanto foi gasto em cada categoria?", respondida em SQL, Python e R:</p>
-
-    <div class="lang-box">
-      <div class="lang-header">
-        <h3>SQL</h3>
-        <span class="badge">Em estudo</span>
-      </div>
-<pre><code>SELECT categoria, SUM(valor) AS total
-FROM despesas
-GROUP BY categoria
-ORDER BY total DESC;</code></pre>
-    </div>
-
-    <div class="lang-box">
-      <div class="lang-header">
-        <h3>Python</h3>
-        <span class="badge">Em estudo • 72h</span>
-      </div>
-<pre><code>import pandas as pd
-
-df = pd.read_csv("despesas.csv")
-(df.groupby("categoria")["valor"]
-   .sum()
-   .sort_values(ascending=False))</code></pre>
-    </div>
-
-    <div class="lang-box">
-      <div class="lang-header">
-        <h3>R</h3>
-        <span class="badge">Prática Avançada</span>
-      </div>
-<pre><code>library(dplyr)
-
-despesas |&gt;
-  group_by(categoria) |&gt;
-  summarise(total = sum(valor)) |&gt;
-  arrange(desc(total))</code></pre>
-    </div>
-  </section>
-
-  <section id="experiencia">
-    <h2>💼 Experiências Profissionais</h2>
-    <div style="overflow-x:auto;">
-      <table class="ledger"><tbody>
-        <tr><td>Jun/2026 – Atual</td><td><strong>Auxiliar Administrativo de Obras</strong>, DETEX<small>Controle de ponto e documentação, compras e materiais, notas fiscais e solicitações de pagamento.</small></td></tr>
-        <tr><td>Jan/2025 – Mar/2026</td><td><strong>Assistente Financeiro Júnior</strong>, Bitribut Recuperação Tributária<small>Conciliação bancária diária, contas a pagar, relatórios de contas a receber e inadimplência, lançamentos no Domínio.</small></td></tr>
-        <tr><td>Fev/2024 – Dez/2024</td><td><strong>Estágio Financeiro e Administrativo</strong>, Universidade Regional do Cariri (URCA)<small>Apoio ao setor financeiro, planilhas e relatórios, prestação de contas.</small></td></tr>
-        <tr><td>Ago/2018 – Dez/2018</td><td><strong>Estágio em TI (Help Desk)</strong>, Inforprint<small>Suporte a usuários, manutenção de computadores e controle de ativos de TI.</small></td></tr>
-      </tbody></table>
-    </div>
-  </section>
-
-  <section id="formacao">
-    <h2>🎓 Formação & Certificações</h2>
-    <div style="overflow-x:auto;">
-      <table class="ledger"><tbody>
-        <tr><td>2025</td><td><strong>Bacharelado em Ciências Econômicas</strong>, Universidade Regional do Cariri (URCA)</td></tr>
-        <tr><td>Em andamento</td><td><strong>Power BI para BI e Data Science</strong> (72h)</td></tr>
-        <tr><td>Em andamento</td><td><strong>Fundamentos de Python para Análise de Dados e Data Science</strong> (72h)</td></tr>
-        <tr><td>Concluído</td><td><strong>Assistente de Contabilidade</strong> (200h), IF do Rio Grande do Sul</td></tr>
-        <tr><td>Concluído</td><td><strong>Microsoft Office, Básico ao Avançado</strong> (140h), Fundação Bradesco</td></tr>
-        <tr><td>Concluído</td><td><strong>Ensino Médio e Técnico em Informática</strong> (1540h), E.E.E.P. Gov. Virgílio Távora</td></tr>
-      </tbody></table>
-    </div>
-  </section>
-
-  <section id="projetos">
-    <h2>🚀 Projetos</h2>
-    <div class="card" style="border: 2px dashed var(--line); background: transparent; text-align: center; padding: 2.5rem;">
-      <p style="margin: 0;">Os primeiros projetos de análise de dados econômicos e públicos em R, Python e SQL serão publicados em breve. Acompanhe no <a href="https://github.com/wandersondslima" target="_blank" rel="noopener">GitHub</a>.</p>
-    </div>
-  </section>
-
-  <section id="contato">
-    <div class="contact-banner">
-      <div>
-        <h2 style="margin: 0 0 0.5rem; font-size: 1.5rem;">Vamos trabalhar juntos?</h2>
-        <p style="margin: 0; color: var(--muted);">Estou disponível para novos desafios, auditoria, controladoria e análise de dados.</p>
-      </div>
-      <a class="btn main" href="mailto:wandersontumblr@gmail.com">Entrar em Contato →</a>
-    </div>
-  </section>
-
-</div></main>
-
-<footer>
-  <div class="wrap">Francisco Wanderson De Sousa Lima • Crato-CE • © 2026</div>
-</footer>
-
-</body>
-</html>
+        <a class="btn main" href="mailto:wandersontumblr@gmail.com">Enviar e-mail</a>
+        <a class="btn alt" href="https://www.linkedin.com/in/franciscowandersondesousalima" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn alt" href="https://github.com/wandersondslima" target="_blank" rel="noopener">GitHub</a>
