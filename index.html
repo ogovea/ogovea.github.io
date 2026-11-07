@@ -240,11 +240,11 @@ section h2 {
   font-size: 0.9rem;
 }
 
-/* Habilidades Técnicas com Ícones */
+/* Habilidades Técnicas com as Logos Reais */
 .tech-icons-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 1rem;
+  gap: 1.2rem;
   margin-top: 1rem;
 }
 
@@ -255,6 +255,11 @@ section h2 {
   padding: 1.2rem;
   text-align: center;
   transition: transform 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .tech-card:hover {
@@ -262,12 +267,16 @@ section h2 {
   border-color: var(--brand);
 }
 
+.tech-card img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
 .tech-card span {
-  display: block;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--ink);
-  margin-top: 0.5rem;
 }
 
 /* Linguagens / Código */
@@ -437,28 +446,24 @@ footer {
     <h2>🛠️ Habilidades Técnicas</h2>
     <div class="tech-icons-grid">
       <div class="tech-card">
-        <span style="font-size: 2rem;">📊</span>
+        <img src="excel.webp" alt="Excel" onerror="this.style.display='none'">
         <span>Excel</span>
       </div>
       <div class="tech-card">
-        <span style="font-size: 2rem;">📈</span>
+        <img src="powerbi.webp" alt="Power BI" onerror="this.style.display='none'">
         <span>Power BI</span>
       </div>
       <div class="tech-card">
-        <span style="font-size: 2rem;">🐍</span>
+        <img src="python.png" alt="Python" onerror="this.style.display='none'">
         <span>Python</span>
       </div>
       <div class="tech-card">
-        <span style="font-size: 2rem;">📉</span>
+        <img src="r.png" alt="R" onerror="this.style.display='none'">
         <span>R</span>
       </div>
       <div class="tech-card">
-        <span style="font-size: 2rem;">🗄️</span>
+        <img src="sql.png" alt="SQL" onerror="this.style.display='none'">
         <span>SQL</span>
-      </div>
-      <div class="tech-card">
-        <span style="font-size: 2rem;">⚡</span>
-        <span>Domínio</span>
       </div>
     </div>
   </section>
