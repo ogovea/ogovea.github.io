@@ -240,43 +240,34 @@ section h2 {
   font-size: 0.9rem;
 }
 
-/* Habilidades Técnicas com Logos Perfeitas */
-.tech-icons-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 1.2rem;
-  margin-top: 1rem;
-}
-
-.tech-card {
+/* Apenas as Logos Centralizadas e Limpas */
+.tech-icons-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 1.2rem;
-  text-align: center;
-  transition: transform 0.2s, border-color 0.2s;
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  flex-wrap: wrap;
+}
+
+.tech-icon-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  transition: transform 0.2s;
 }
 
-.tech-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--brand);
+.tech-icon-item:hover {
+  transform: scale(1.1);
 }
 
-.tech-card img {
-  width: 48px;
-  height: 48px;
+.tech-icon-item img {
+  height: 52px;
+  width: auto;
   object-fit: contain;
-}
-
-.tech-card span {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--ink);
 }
 
 /* Linguagens / Código */
@@ -380,6 +371,7 @@ footer {
 @media (max-width: 768px) {
   .hero { flex-direction: column; text-align: left; padding-top: 2.5rem; }
   .about-grid { grid-template-columns: 1fr; }
+  .tech-icons-row { justify-content: space-around; gap: 1rem; padding: 1.5rem; }
   .contact-banner { flex-direction: column; align-items: flex-start; }
   .ledger td:first-child { width: auto; white-space: normal; }
 }
@@ -444,120 +436,12 @@ footer {
 
   <section id="habilidades">
     <h2>🛠️ Habilidades Técnicas</h2>
-    <div class="tech-icons-grid">
-      <div class="tech-card">
+    <div class="tech-icons-row">
+      <div class="tech-icon-item">
         <img src="Excel.png" alt="Excel">
-        <span>Excel</span>
       </div>
-      <div class="tech-card">
+      <div class="tech-icon-item">
         <img src="powerbi.png" alt="Power BI">
-        <span>Power BI</span>
       </div>
-      <div class="tech-card">
-        <img src="python.png" alt="Python">
-        <span>Python</span>
-      </div>
-      <div class="tech-card">
-        <img src="R.png" alt="R">
-        <span>R</span>
-      </div>
-      <div class="tech-card">
-        <img src="sql.png" alt="SQL">
-        <span>SQL</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="linguagens">
-    <h2>💻 Códigos e Consultas</h2>
-    <p style="color: var(--muted); margin-bottom: 1.5rem;">A mesma pergunta, "quanto foi gasto em cada categoria?", respondida em três linguagens:</p>
-
-    <div class="lang-box">
-      <div class="lang-header">
-        <h3>SQL</h3>
-        <span class="badge">Em estudo</span>
-      </div>
-<pre><code>SELECT categoria, SUM(valor) AS total
-FROM despesas
-GROUP BY categoria
-ORDER BY total DESC;</code></pre>
-    </div>
-
-    <div class="lang-box">
-      <div class="lang-header">
-        <h3>Python</h3>
-        <span class="badge">Em estudo • 72h</span>
-      </div>
-<pre><code>import pandas as pd
-
-df = pd.read_csv("despesas.csv")
-(df.groupby("categoria")["valor"]
-   .sum()
-   .sort_values(ascending=False))</code></pre>
-    </div>
-
-    <div class="lang-box">
-      <div class="lang-header">
-        <h3>R</h3>
-        <span class="badge">Prática Avançada</span>
-      </div>
-<pre><code>library(dplyr)
-
-despesas |&gt;
-  group_by(categoria) |&gt;
-  summarise(total = sum(valor)) |&gt;
-  arrange(desc(total))</code></pre>
-    </div>
-  </section>
-
-  <section id="experiencia">
-    <h2>💼 Experiências Profissionais</h2>
-    <div style="overflow-x:auto;">
-      <table class="ledger"><tbody>
-        <tr><td>Jun/2026 – Atual</td><td><strong>Auxiliar Administrativo de Obras</strong>, DETEX<small>Controle de ponto e documentação, compras e materiais, notas fiscais e solicitações de pagamento.</small></td></tr>
-        <tr><td>Jan/2025 – Mar/2026</td><td><strong>Assistente Financeiro Júnior</strong>, Bitribut Recuperação Tributária<small>Conciliação bancária diária, contas a pagar, relatórios de contas a receber e inadimplência, lançamentos no Domínio.</small></td></tr>
-        <tr><td>Fev/2024 – Dez/2024</td><td><strong>Estágio Financeiro e Administrativo</strong>, URCA<small>Apoio ao setor financeiro, planilhas e relatórios, prestação de contas.</small></td></tr>
-        <tr><td>Ago/2018 – Dez/2018</td><td><strong>Estágio em TI (Help Desk)</strong>, Inforprint<small>Suporte a usuários, manutenção de computadores e controle de ativos de TI.</small></td></tr>
-      </tbody></table>
-    </div>
-  </section>
-
-  <section id="formacao">
-    <h2>🎓 Formação & Certificações</h2>
-    <div style="overflow-x:auto;">
-      <table class="ledger"><tbody>
-        <tr><td>2025</td><td><strong>Bacharelado em Ciências Econômicas</strong>, Universidade Regional do Cariri (URCA)</td></tr>
-        <tr><td>Em andamento</td><td><strong>Power BI para BI e Data Science</strong> (72h)</td></tr>
-        <tr><td>Em andamento</td><td><strong>Fundamentos de Python para Análise de Dados e Data Science</strong> (72h)</td></tr>
-        <tr><td>Concluído</td><td><strong>Assistente de Contabilidade</strong> (200h), IF do Rio Grande do Sul</td></tr>
-        <tr><td>Concluído</td><td><strong>Microsoft Office, Básico ao Avançado</strong> (140h), Fundação Bradesco</td></tr>
-        <tr><td>Concluído</td><td><strong>Ensino Médio e Técnico em Informática</strong> (1540h), E.E.E.P. Gov. Virgílio Távora</td></tr>
-      </tbody></table>
-    </div>
-  </section>
-
-  <section id="projetos">
-    <h2>🚀 Projetos</h2>
-    <div class="card" style="border: 2px dashed var(--line); background: transparent; text-align: center; padding: 2.5rem;">
-      <p style="margin: 0;">Os primeiros projetos de análise de dados econômicos e públicos em R, Python e SQL serão publicados em breve. Acompanhe no <a href="https://github.com/wandersondslima" target="_blank" rel="noopener">GitHub</a>.</p>
-    </div>
-  </section>
-
-  <section id="contato">
-    <div class="contact-banner">
-      <div>
-        <h2>Vamos trabalhar juntos?</h2>
-        <p>Estou disponível para novos desafios, auditoria, controladoria e análise de dados.</p>
-      </div>
-      <a class="btn" href="mailto:wandersontumblr@gmail.com">Entrar em Contato →</a>
-    </div>
-  </section>
-
-</div></main>
-
-<footer>
-  <div class="wrap">Francisco Wanderson De Sousa Lima • Crato-CE • © 2026[cite: 2]</div>
-</footer>
-
-</body>
-</html>
+      <div class="tech-icon-item">
+        <img src="python.
