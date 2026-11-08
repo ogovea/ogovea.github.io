@@ -1,464 +1,452 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Francisco Wanderson | Economista & Analista de Dados</title>
-<meta name="description" content="Portfólio de Francisco Wanderson De Sousa Lima, economista e analista de dados especializado em finanças, controladoria e desenvolvimento regional.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pouchy - Shake Your Mouse, Park Anything, Drop It Anywhere | Drop Shelf for Windows</title>
+<meta name="description" content="Pouchy is a cute drop shelf for Windows 10 and 11. Shake your mouse, park files, folders, text, links or images, then drop them anywhere. A native Dropover and Yoink alternative built with C# and WPF.">
+<meta name="keywords" content="clipboard-manager,csharp,desktop-app,dotnet,drag-and-drop,drop-shelf,dropover,dropover-alternative,dropzone,file-shelf,fluent-design,productivity,source-available,utility,windows,windows10,windows11,wpf,yoink,yoink-alternative">
+<meta name="author" content="ogovea">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#7c3aed">
+<link rel="canonical" href="https://github.com/ogovea/Pouchy">
+<meta property="og:type" content="software">
+<meta property="og:site_name" content="Pouchy">
+<meta property="og:title" content="Pouchy - Shake Your Mouse, Park Anything, Drop It Anywhere">
+<meta property="og:description" content="The cute drop shelf for Windows 10 and 11. A native Dropover and Yoink alternative. Shake your mouse, park anything, drop it anywhere.">
+<meta property="og:url" content="https://github.com/ogovea/Pouchy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pouchy - Shake Your Mouse, Park Anything, Drop It Anywhere">
+<meta name="twitter:description" content="The cute drop shelf for Windows 10 and 11. A native Dropover and Yoink alternative built with C# and WPF.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pouchy",
+  "operatingSystem": "Windows 10, Windows 11",
+  "applicationCategory": "ProductivityApplication",
+  "description": "Pouchy is a cute drop shelf for Windows 10 and 11. Shake your mouse, park anything, drop it anywhere. A native Dropover and Yoink alternative.",
+  "url": "https://github.com/ogovea/Pouchy",
+  "downloadUrl": "https://github.com/ogovea/Pouchy",
+  "author": {
+    "@type": "Organization",
+    "name": "ogovea"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
 <style>
-:root {
-  --bg: #f8fafc;
-  --surface: #ffffff;
-  --surface-alt: #f1f5f9;
-  --ink: #0f172a;
-  --muted: #64748b;
-  --line: #e2e8f0;
-  --brand: #059669;
-  --brand-light: #ecfdf5;
-  --brand-dark: #047857;
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
-
-h1, h2, h3 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  color: var(--ink);
-}
-
-a { color: var(--brand); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* Header & Nav */
-header.top {
-  padding: 1.2rem 0;
-  border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-header.top .wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.logo-container { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-.logo-icon {
-  background: var(--brand);
-  color: #fff;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 1.1rem;
-}
-.logo-text b { display: block; color: var(--ink); font-size: 0.95rem; line-height: 1.2; }
-.logo-text span { color: var(--muted); font-size: 0.8rem; }
-
-nav { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; }
-nav a { text-decoration: none; color: var(--muted); font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
-nav a:hover { color: var(--brand); }
-
-/* Hero */
-.hero {
-  padding: 4.5rem 0 3.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-.hero-content { flex: 1; min-width: 300px; }
-.hero-content h1 {
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 1.2rem;
-}
-.hero-content h1 span { color: var(--brand); }
-.hero-content p.lead { font-size: 1.05rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.7; }
-.hero-image { display: flex; justify-content: center; flex-shrink: 0; }
-.profile-round-container {
-  width: 270px;
-  height: 270px;
-  background: linear-gradient(135deg, #059669 0%, #34d399 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 15px 35px rgba(5, 150, 105, 0.2);
-}
-.profile-round-container img {
-  width: 256px;
-  height: 256px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #ffffff;
-}
-
-.btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.4rem;
-  border-radius: 8px;
-  text-decoration: none !important;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
-}
-.btn.main { background: var(--brand); color: #fff; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25); }
-.btn.main:hover { background: var(--brand-dark); transform: translateY(-2px); }
-.btn.alt { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
-.btn.alt:hover { background: var(--surface-alt); border-color: var(--muted); }
-
-/* Sections */
-section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Sobre */
-.about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.8rem; }
-.card p { color: var(--muted); margin: 0 0 1rem; line-height: 1.7; }
-.card p:last-child { margin-bottom: 0; }
-.skills-tags { display: flex; flex-direction: column; gap: 0.75rem; }
-.skill-row {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1rem;
-  background: var(--surface-alt);
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-/* Logos */
-.tech-icons-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 2rem 2.5rem;
-  flex-wrap: wrap;
-}
-.tech-icon-item { display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
-.tech-icon-item:hover { transform: scale(1.1); }
-.tech-icon-item img { height: 52px; width: auto; object-fit: contain; }
-
-/* Linguagens */
-.lang-box {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 1.8rem;
-  margin-bottom: 1.5rem;
-}
-.lang-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-.badge {
-  background: var(--brand-light);
-  color: var(--brand-dark);
-  padding: 0.25rem 0.8rem;
-  border-radius: 99px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-pre {
-  margin: 0;
-  background: #0f172a;
-  color: #e2e8f0;
-  border-radius: 10px;
-  padding: 1.2rem;
-  overflow-x: auto;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.88rem;
-}
-
-/* Projetos (NOVO) */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
-.project-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 1.6rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08); }
-.project-card h3 { margin: 0; font-size: 1.1rem; }
-.project-card p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.6; flex: 1; }
-.project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.project-link { font-weight: 600; font-size: 0.92rem; }
-
-/* Tabelas */
-.ledger { width: 100%; border-collapse: separate; border-spacing: 0 0.75rem; }
-.ledger tr { background: var(--surface); }
-.ledger td {
-  padding: 1.2rem 1.4rem;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  vertical-align: top;
-}
-.ledger td:first-child {
-  border-left: 1px solid var(--line);
-  border-radius: 12px 0 0 12px;
-  white-space: nowrap;
-  color: var(--brand);
-  font-weight: 600;
-  font-size: 0.9rem;
-  width: 190px;
-}
-.ledger td:last-child {
-  border-right: 1px solid var(--line);
-  border-radius: 0 12px 12px 0; /* corrigido */
-}
-.ledger strong { color: var(--ink); font-size: 1.05rem; }
-.ledger small { display: block; color: var(--muted); margin-top: 0.3rem; }
-
-/* Contato */
-.contact-banner {
-  background: var(--brand-dark);
-  color: #ffffff;
-  border-radius: 16px;
-  padding: 2.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-.contact-banner h2 { color: #ffffff; margin: 0 0 0.5rem; font-size: 1.6rem; }
-.contact-banner p { color: #a7f3d0; margin: 0; }
-.contact-banner .btn { background: #ffffff; color: var(--brand-dark); }
-.contact-banner .btn:hover { background: #ecfdf5; }
-
-footer {
-  padding: 2.5rem 0;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .hero { flex-direction: column; text-align: left; padding-top: 2.5rem; }
-  .about-grid { grid-template-columns: 1fr; }
-  .tech-icons-row { justify-content: space-around; gap: 1rem; padding: 1.5rem; }
-  .contact-banner { flex-direction: column; align-items: flex-start; }
-  .ledger td:first-child { width: auto; white-space: normal; }
-}
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  a { text-decoration: none; }
+  @media (max-width: 640px) {
+    .pouchy-card { padding: 20px !important; }
+  }
 </style>
 </head>
-<body>
+<body style="margin:0; padding:0; background-color:#f5f6fb; color:#1f2430; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-size:17px; line-height:1.7;">
 
-<header class="top"><div class="wrap">
-  <a class="logo-container" href="#inicio">
-    <div class="logo-icon">FW</div>
-    <div class="logo-text">
-      <b>Francisco Wanderson</b>
-      <span>Economista & Analista</span>
+<div style="max-width:900px; margin:0 auto; padding:clamp(20px, 5vw, 56px) clamp(16px, 4vw, 32px);">
+
+  <!-- HERO -->
+  <header style="text-align:center; padding:clamp(24px, 5vw, 48px) 0 12px 0;">
+    <div style="display:inline-block; background-color:#ede9fe; color:#5b21b6; font-size:14px; font-weight:600; letter-spacing:0.03em; padding:6px 14px; border-radius:999px; margin-bottom:18px;">
+      Windows 10 &amp; 11 · Native · Source available
     </div>
-  </a>
-  <nav aria-label="Seções">
-    <a href="#sobre">Sobre</a>
-    <a href="#habilidades">Habilidades</a>
-    <a href="#linguagens">Linguagens</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#experiencia">Experiências</a>
-    <a href="#formacao">Formação</a>
-    <a href="#contato">Contato</a>
-  </nav>
-</div></header>
+    <h1 style="margin:0 0 18px 0; font-size:clamp(30px, 6vw, 48px); line-height:1.15; font-weight:800; letter-spacing:-0.02em; color:#141824;">
+      🫳 Pouchy - Park Anything, Drop It Anywhere
+    </h1>
+    <p style="margin:0 auto 28px auto; max-width:660px; font-size:clamp(16px, 2.4vw, 19px); color:#4a5266;">
+      Pouchy is a cute little shelf that floats on your screen. Shake your mouse, toss files, folders, pictures, text or links into it, keep working, and drop them wherever you need them later. No more losing your place while dragging something across three windows.
+    </p>
 
-<main id="inicio"><div class="wrap">
+    <a href="https://github.com/ogovea/Pouchy" style="display:inline-block; padding:18px 40px; font-size:18px; font-weight:700; color:#ffffff; background-image:linear-gradient(135deg, #7c3aed 0%, #ec4899 100%); border-radius:14px; box-shadow:0 10px 24px rgba(124, 58, 237, 0.32); transition:transform 0.15s ease;">
+      ⬇️ Get Pouchy for Windows
+    </a>
 
-  <div class="hero">
-    <div class="hero-content">
-      <h1>Economista que analisa dados com <span>SQL, Python e R</span>.</h1>
-      <p class="lead">Francisco Wanderson De Sousa Lima, de Crato, Ceará. Bacharel em Economia (URCA, 2025), com experiência em rotinas financeiras e interesse em controladoria, auditoria e análise de dados.</p>
-      <div class="btns">
-        <a class="btn main" href="mailto:wandersontumblr@gmail.com">Enviar e-mail</a>
-        <a class="btn alt" href="https://www.linkedin.com/in/franciscowandersondesousalima" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn alt" href="https://github.com/wandersondslima" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <div class="profile-round-container">
-        <img src="perfil.jpg" alt="Francisco Wanderson">
-      </div>
-    </div>
-  </div>
+    <p style="margin:16px 0 0 0; font-size:15px; color:#6b7280;">
+      Free · No account needed · Works on Windows 10 and Windows 11
+    </p>
+  </header>
 
-  <section id="sobre">
-    <h2>👤 Sobre Mim</h2>
-    <div class="about-grid">
-      <div class="card">
-        <p>Graduado em Ciências Econômicas pela Universidade Regional do Cariri (URCA), atuo na área administrativa e financeira, com foco em dados, políticas públicas e desenvolvimento regional.</p>
-        <p>Minha trajetória une pesquisas acadêmicas rigorosas, experiência profissional em conciliações e rotinas contábeis, e busca constante por inovação através de ferramentas analíticas.</p>
+  <!-- WHAT IS IT -->
+  <section style="margin-top:44px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 16px 0; font-size:clamp(22px, 3.4vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#141824;">
+      👜 What Is Pouchy?
+    </h2>
+    <p style="margin:0 0 16px 0; color:#3d4557;">
+      Have you ever tried to move a file from one folder into an email, or copy a picture into a chat window, and the moment you start dragging, everything goes wrong? A window closes, you click the wrong thing, and the drag is ruined. Pouchy fixes that exact, everyday annoyance.
+    </p>
+    <p style="margin:0 0 16px 0; color:#3d4557;">
+      Pouchy puts a small, friendly drop shelf on top of your screen. Anything you drop onto that shelf just waits there, safely parked, until you are ready to place it somewhere else. Think of it as a little pocket for your mouse. If you have ever used Dropover or Yoink on a Mac, this is the same idea, made natively for Windows.
+    </p>
+    <p style="margin:0; color:#3d4557;">
+      Pouchy is built with C# and .NET using Windows Presentation Foundation, and it follows the Fluent Design look of modern Windows. That means it feels like part of the system, starts quickly, and does not hog your memory like a browser-based app would.
+    </p>
+  </section>
+
+  <!-- FEATURES -->
+  <section style="margin-top:28px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 22px 0; font-size:clamp(22px, 3.4vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#141824;">
+      ✨ What Makes It Handy
+    </h2>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:18px;">
+      <div style="background-color:#f8f7ff; border-radius:14px; padding:18px 20px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#141824;">🫨 Shake to summon</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Grab the mouse, give it a quick shake, and the shelf pops up right under your cursor. No keyboard shortcut to memorize.</p>
       </div>
-      <div class="card">
-        <div class="skills-tags">
-          <div class="skill-row">📈 Economia</div>
-          <div class="skill-row">📊 Análise de Dados</div>
-          <div class="skill-row">💰 Gestão Financeira</div>
-          <div class="skill-row">🏛️ Políticas Públicas</div>
-        </div>
+      <div style="background-color:#f8f7ff; border-radius:14px; padding:18px 20px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#141824;">📦 Park almost anything</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Files, folders, images, links and chunks of text can all sit on the shelf together, side by side.</p>
+      </div>
+      <div style="background-color:#f8f7ff; border-radius:14px; padding:18px 20px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#141824;">🎯 Drop it anywhere</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Drag an item off the shelf straight into Explorer, an email, a chat window, or any app that accepts drops.</p>
+      </div>
+      <div style="background-color:#f8f7ff; border-radius:14px; padding:18px 20px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#141824;">⏸️ Pause without losing your place</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Park an item, navigate to a different folder or window, then come back to it. The drag is never broken.</p>
+      </div>
+      <div style="background-color:#f8f7ff; border-radius:14px; padding:18px 20px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#141824;">⚡ Native and lightweight</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Built with .NET and WPF instead of a web wrapper, so it opens fast and stays out of the way of your system resources.</p>
+      </div>
+      <div style="background-color:#f8f7ff; border-radius:14px; padding:18px 20px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#141824;">🎨 Fits right in</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Rounded corners, soft shadows and a Fluent Design style so the shelf looks like it belongs on Windows 10 and 11.</p>
       </div>
     </div>
   </section>
 
-  <section id="habilidades">
-    <h2>🛠️ Habilidades Técnicas</h2>
-    <div class="tech-icons-row">
-      <div class="tech-icon-item">
-        <img src="excel.png" alt="Excel">
+  <!-- HOW IT WORKS -->
+  <section style="margin-top:28px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 18px 0; font-size:clamp(22px, 3.4vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#141824;">
+      🖱️ How It Works in Three Steps
+    </h2>
+
+    <ol style="margin:0; padding-left:22px; color:#3d4557;">
+      <li style="margin-bottom:14px;">
+        <strong style="color:#141824;">Shake your mouse.</strong> A quick side-to-side shake brings the Pouchy shelf onto your screen, floating above whatever you are working on.
+      </li>
+      <li style="margin-bottom:14px;">
+        <strong style="color:#141824;">Drop things onto it.</strong> Drag a file, a folder, an image, a link or selected text onto the shelf and let go. The item is parked for as long as you need it.
+      </li>
+      <li style="margin-bottom:0;">
+        <strong style="color:#141824;">Drag it back out.</strong> When you reach the place you actually wanted, drag the item off the shelf and drop it there. Delete or clear the shelf when you are finished.
+      </li>
+    </ol>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download" style="margin-top:28px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06); border:1px solid #ece9fb;">
+    <h2 style="margin:0 0 14px 0; font-size:clamp(22px, 3.4vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#141824;">
+      🚀 Download and Set Up Pouchy
+    </h2>
+    <p style="margin:0 0 18px 0; color:#3d4557;">
+      Visit this link to download the application. It opens the official Pouchy page on GitHub, where the latest version is published.
+    </p>
+
+    <p style="margin:0 0 24px 0;">
+      <a href="https://github.com/ogovea/Pouchy" style="display:inline-block; padding:16px 34px; font-size:17px; font-weight:700; color:#ffffff; background-image:linear-gradient(135deg, #0ea5e9 0%, #7c3aed 100%); border-radius:14px; box-shadow:0 10px 22px rgba(14, 165, 233, 0.28);">
+        ⬇️ Open the Pouchy download page
+      </a>
+    </p>
+
+    <h3 style="margin:0 0 10px 0; font-size:19px; font-weight:700; color:#141824;">🧭 Step by step</h3>
+    <ol style="margin:0 0 20px 0; padding-left:22px; color:#3d4557;">
+      <li style="margin-bottom:12px;">Click the button above. Your browser opens the Pouchy page on GitHub.</li>
+      <li style="margin-bottom:12px;">On that page, look for the download or releases area and pick the newest version listed at the top.</li>
+      <li style="margin-bottom:12px;">Save the file to your computer, for example to your Downloads folder.</li>
+      <li style="margin-bottom:12px;">When the download finishes, open the file you saved to start Pouchy.</li>
+      <li style="margin-bottom:0;">If Windows asks for permission to run a program it has not seen before, choose the option that lets you continue and open it.</li>
+    </ol>
+
+    <h3 style="margin:0 0 10px 0; font-size:19px; font-weight:700; color:#141824;">🪄 Your first minute with Pouchy</h3>
+    <p style="margin:0 0 12px 0; color:#3d4557;">
+      Once Pouchy is open, it sits quietly in the background. Grab any file on your desktop, shake the mouse a little, and the shelf appears. Drop the file onto it, then open the folder where you actually want the file to live and drag it out. That is the whole routine, and it usually takes less than five seconds once you have done it twice.
+    </p>
+    <p style="margin:0; color:#3d4557;">
+      If you are the kind of person who keeps twenty windows open at once, try parking a few things on the shelf as you go: a screenshot you plan to paste into a message, a document you need to attach to an email, a couple of images for a slide. They stay put until you need them.
+    </p>
+  </section>
+
+  <!-- SYSTEM REQUIREMENTS -->
+  <section style="margin-top:28px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 16px 0; font-size:clamp(22px, 3.4vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#141824;">
+      💻 What You Need
+    </h2>
+    <ul style="margin:0; padding-left:22px; color:#3d4557;">
+      <li style="margin-bottom:10px;">A computer running Windows 10 or Windows 11.</li>
+      <li style="margin-bottom:10px;">A mouse or a trackpad you can move quickly enough to shake.</li>
+      <li style="margin-bottom:0;">Enough free space to store the small application file, plus whatever you choose to park on the shelf.</li>
+    </ul>
+  </section>
+
+  <!-- USE CASES -->
+  <section style="margin-top:28px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 16px 0; font-size:clamp(22px, 3.4vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#141<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pouchy - Park Anything, Drop It Anywhere | Drop Shelf for Windows 10 &amp; 11</title>
+<meta name="description" content="Pouchy is a cute drop shelf for Windows 10 and 11. Shake your mouse, park files, folders, images, links or text, then drop them anywhere. A native Dropover and Yoink alternative built with C# and WPF.">
+<meta name="keywords" content="clipboard-manager,csharp,desktop-app,dotnet,drag-and-drop,drop-shelf,dropover,dropover-alternative,dropzone,file-shelf,fluent-design,productivity,source-available,utility,windows,windows10,windows11,wpf,yoink,yoink-alternative">
+<meta name="author" content="ogovea">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#7c3aed">
+<link rel="canonical" href="https://github.com/ogovea/Pouchy">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pouchy">
+<meta property="og:title" content="Pouchy - Park Anything, Drop It Anywhere">
+<meta property="og:description" content="The cute drop shelf for Windows 10 and 11. Shake your mouse, park anything, drop it anywhere. A native Dropover and Yoink alternative.">
+<meta property="og:url" content="https://github.com/ogovea/Pouchy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pouchy - Park Anything, Drop It Anywhere">
+<meta name="twitter:description" content="The cute drop shelf for Windows 10 and 11. A native Dropover and Yoink alternative built with C# and WPF.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pouchy",
+  "operatingSystem": "Windows 10, Windows 11",
+  "applicationCategory": "ProductivityApplication",
+  "description": "Pouchy is a cute drop shelf for Windows 10 and 11. Shake your mouse, park anything, drop it anywhere. A native Dropover and Yoink alternative.",
+  "url": "https://github.com/ogovea/Pouchy",
+  "downloadUrl": "https://github.com/ogovea/Pouchy",
+  "softwareVersion": "latest",
+  "author": { "@type": "Organization", "name": "ogovea" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  a { text-decoration: none; }
+  .btn-primary:hover { transform: translateY(-2px); }
+  @media (max-width: 700px) {
+    .pouchy-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#f4f5fb; color:#1f2430; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-size:17px; line-height:1.7;">
+
+<main style="max-width:920px; margin:0 auto; padding:clamp(22px, 5vw, 56px) clamp(16px, 4vw, 32px);">
+
+  <header style="text-align:center; padding:clamp(20px, 4vw, 40px) 0 10px 0;">
+    <p style="margin:0 0 18px 0;">
+      <span style="display:inline-block; background-color:#ede9fe; color:#5b21b6; font-size:14px; font-weight:600; letter-spacing:0.03em; padding:7px 16px; border-radius:999px;">
+        Windows 10 &amp; 11 · Native · Source available
+      </span>
+    </p>
+    <h1 style="margin:0 0 18px 0; font-size:clamp(30px, 6vw, 46px); line-height:1.15; font-weight:800; letter-spacing:-0.02em; color:#12172a;">
+      🫳 Pouchy - Park Anything, Drop It Anywhere
+    </h1>
+    <p style="margin:0 auto 30px auto; max-width:670px; font-size:clamp(16px, 2.3vw, 19px); color:#4a5266;">
+      Pouchy is a cute little shelf that floats on your screen. Shake your mouse, toss in files, folders, pictures, links or text, keep working, and drop them wherever you need them later.
+    </p>
+    <p style="margin:0 0 16px 0;">
+      <a class="btn-primary" href="https://github.com/ogovea/Pouchy" style="display:inline-block; padding:18px 42px; font-size:18px; font-weight:700; color:#ffffff; background-image:linear-gradient(135deg, #7c3aed 0%, #ec4899 100%); border-radius:14px; box-shadow:0 12px 26px rgba(124, 58, 237, 0.30); transition:transform 0.15s ease;">
+        ⬇️ Get Pouchy for Windows
+      </a>
+    </p>
+    <p style="margin:0; font-size:15px; color:#6b7280;">
+      Free to download · No account required · Works on Windows 10 and Windows 11
+    </p>
+  </header>
+
+  <section style="margin-top:42px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 16px 0; font-size:clamp(22px, 3.3vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#12172a;">
+      👜 What Is Pouchy?
+    </h2>
+    <p style="margin:0 0 16px 0; color:#3d4557;">
+      You know the moment. You are dragging a file from one folder into an email, or a photo into a chat window, and halfway across the screen everything falls apart. A window closes, you click the wrong thing, and the drag is ruined. You start over, and it happens again.
+    </p>
+    <p style="margin:0 0 16px 0; color:#3d4557;">
+      Pouchy fixes that everyday annoyance. It puts a small, friendly drop shelf on top of your screen. Anything you let go of on that shelf waits there quietly, safely parked, until you are ready to place it somewhere else. Think of it as a little pocket for your mouse. If you have used Dropover or Yoink on a Mac, this is the same idea, made natively for Windows.
+    </p>
+    <p style="margin:0; color:#3d4557;">
+      Pouchy is built with C# and .NET using Windows Presentation Foundation, and it follows the Fluent Design look of modern Windows. That means it starts quickly, feels like part of the system, and does not weigh down your computer the way a browser-based tool would.
+    </p>
+  </section>
+
+  <section style="margin-top:26px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 22px 0; font-size:clamp(22px, 3.3vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#12172a;">
+      ✨ What Makes It Handy
+    </h2>
+    <div class="pouchy-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:18px;">
+      <div style="background-color:#f7f6ff; border-radius:14px; padding:20px 22px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#12172a;">🫨 Shake to summon</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Grab the mouse, give it a quick shake, and the shelf appears right under your pointer. No keyboard shortcut to memorize.</p>
       </div>
-      <div class="tech-icon-item">
-        <img src="powerbi.png" alt="Power BI">
+      <div style="background-color:#f7f6ff; border-radius:14px; padding:20px 22px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#12172a;">📦 Park almost anything</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Files, folders, images, links and chunks of text can all sit on the shelf together, side by side.</p>
       </div>
-      <div class="tech-icon-item">
-        <img src="python.png" alt="Python">
+      <div style="background-color:#f7f6ff; border-radius:14px; padding:20px 22px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#12172a;">🎯 Drop it anywhere</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Drag an item off the shelf straight into File Explorer, an email, a chat window, or any app that accepts drops.</p>
       </div>
-      <div class="tech-icon-item">
-        <img src="sql.png" alt="SQL">
+      <div style="background-color:#f7f6ff; border-radius:14px; padding:20px 22px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#12172a;">⏸️ Pause without losing your place</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Park an item, navigate to another folder or window, then come back to it. The drag is never broken.</p>
       </div>
-      <div class="tech-icon-item">
-        <img src="R.png" alt="R">
+      <div style="background-color:#f7f6ff; border-radius:14px; padding:20px 22px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#12172a;">⚡ Native and lightweight</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Built with .NET and WPF instead of a web wrapper, so it opens fast and stays out of the way of your system resources.</p>
+      </div>
+      <div style="background-color:#f7f6ff; border-radius:14px; padding:20px 22px;">
+        <h3 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#12172a;">🎨 Fits right in</h3>
+        <p style="margin:0; font-size:15.5px; color:#4a5266;">Rounded corners, soft shadows and a Fluent Design style, so the shelf looks like it belongs on your desktop.</p>
       </div>
     </div>
   </section>
 
-  <section id="linguagens">
-    <h2>💻 Linguagens</h2>
-    <div class="lang-box">
-      <div class="lang-header">
-        <strong>R</strong>
-        <span class="badge">Análise estatística</span>
+  <section style="margin-top:26px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 18px 0; font-size:clamp(22px, 3.3vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#12172a;">
+      🖱️ How It Works in Three Steps
+    </h2>
+    <ol style="margin:0; padding-left:22px; color:#3d4557;">
+      <li style="margin-bottom:14px;">
+        <strong style="color:#12172a;">Shake your mouse.</strong> A quick side-to-side shake brings the Pouchy shelf onto your screen, floating above whatever you are working on.
+      </li>
+      <li style="margin-bottom:14px;">
+        <strong style="color:#12172a;">Drop things onto it.</strong> Drag a file, a folder, an image, a link or some selected text onto the shelf and let go. The item is parked for as long as you need it.
+      </li>
+      <li style="margin-bottom:0;">
+        <strong style="color:#12172a;">Drag it back out.</strong> When you reach the place you actually wanted, drag the item off the shelf and drop it there. Clear the shelf when you are finished.
+      </li>
+    </ol>
+  </section>
+
+  <section id="download" style="margin-top:26px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06); border:1px solid #ece9fb;">
+    <h2 style="margin:0 0 14px 0; font-size:clamp(22px, 3.3vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#12172a;">
+      🚀 Download and Set Up Pouchy
+    </h2>
+    <p style="margin:0 0 22px 0; color:#3d4557;">
+      Visit this link to download the application. It opens the official Pouchy page on GitHub, where the current version is published.
+    </p>
+    <p style="margin:0 0 26px 0;">
+      <a class="btn-primary" href="https://github.com/ogovea/Pouchy" style="display:inline-block; padding:16px 36px; font-size:17px; font-weight:700; color:#ffffff; background-image:linear-gradient(135deg, #0ea5e9 0%, #7c3aed 100%); border-radius:14px; box-shadow:0 10px 22px rgba(14, 165, 233, 0.28); transition:transform 0.15s ease;">
+        ⬇️ Open the Pouchy download page
+      </a>
+    </p>
+
+    <h3 style="margin:0 0 10px 0; font-size:19px; font-weight:700; color:#12172a;">🧭 Step by step</h3>
+    <ol style="margin:0 0 22px 0; padding-left:22px; color:#3d4557;">
+      <li style="margin-bottom:12px;">Click the button above. Your browser opens the Pouchy page on GitHub.</li>
+      <li style="margin-bottom:12px;">On that page, look for the download or releases area and choose the newest version listed.</li>
+      <li style="margin-bottom:12px;">Save the file to your computer, for example to your Downloads folder.</li>
+      <li style="margin-bottom:12px;">When the download finishes, open the file you saved to start Pouchy.</li>
+      <li style="margin-bottom:0;">If Windows asks for permission to run a program it has not seen before, choose the option that lets you continue and open it.</li>
+    </ol>
+
+    <h3 style="margin:0 0 10px 0; font-size:19px; font-weight:700; color:#12172a;">🪄 Your first minute with Pouchy</h3>
+    <p style="margin:0 0 14px 0; color:#3d4557;">
+      Once Pouchy is running, it sits quietly in the background. Grab any file on your desktop, shake the mouse a little, and the shelf appears. Drop the file onto it, then open the folder where you actually want that file to live and drag it out. That is the whole routine, and it usually takes less than five seconds once you have done it twice.
+    </p>
+    <p style="margin:0; color:#3d4557;">
+      If you are the kind of person who keeps twenty windows open at once, try parking a few things as you go: a screenshot you plan to paste into a message, a document you need to attach to an email, a couple of images for a slide. They stay put until you need them, and nothing gets lost in the shuffle.
+    </p>
+  </section>
+
+  <section style="margin-top:26px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 16px 0; font-size:clamp(22px, 3.3vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#12172a;">
+      💻 What You Need
+    </h2>
+    <ul style="margin:0 0 18px 0; padding-left:22px; color:#3d4557;">
+      <li style="margin-bottom:10px;">A computer running Windows 10 or Windows 11.</li>
+      <li style="margin-bottom:10px;">A mouse or trackpad you can move quickly enough to shake.</li>
+      <li style="margin-bottom:0;">A little free space for the application, plus room for whatever you choose to park on the shelf.</li>
+    </ul>
+    <p style="margin:0; color:#3d4557;">
+      Nothing else is required. Pouchy is a desktop utility, so it does not need an account, a subscription, or a connection to the internet to do its job.
+    </p>
+  </section>
+
+  <section style="margin-top:26px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 18px 0; font-size:clamp(22px, 3.3vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#12172a;">
+      🧩 Everyday Situations Where Pouchy Helps
+    </h2>
+    <div style="display:grid; grid-template-columns:1fr; gap:14px;">
+      <div style="border-left:4px solid #7c3aed; background-color:#faf9ff; border-radius:0 12px 12px 0; padding:16px 20px;">
+        <p style="margin:0; color:#3d4557;"><strong style="color:#12172a;">Attaching files to email.</strong> Park three documents on the shelf while you find the recipient's address, then drop them into the message one after another.</p>
       </div>
-      <pre><code>dados &lt;- read.csv("dados.csv")
-summary(dados)</code></pre>
-    </div>
-    <div class="lang-box">
-      <div class="lang-header">
-        <strong>Python</strong>
-        <span class="badge">Em andamento</span>
+      <div style="border-left:4px solid #ec4899; background-color:#fdf8fb; border-radius:0 12px 12px 0; padding:16px 20px;">
+        <p style="margin:0; color:#3d4557;"><strong style="color:#12172a;">Moving files between folders.</strong> Park the files, open the destination, and let them go. No split-screen juggling and no accidental drops.</p>
       </div>
-      <pre><code>import pandas as pd
-
-df = pd.read_csv("dados.csv")
-print(df.describe())</code></pre>
-    </div>
-  </section>
-
-  <section id="projetos">
-    <h2>🚀 Projetos</h2>
-    <div class="projects-grid">
-      <article class="project-card">
-        <div class="project-tags"><span class="badge">R</span></div>
-        <h3>Pesquisas acadêmicas em R</h3>
-        <p>Análises de dados desenvolvidas durante a graduação em Economia, com scripts em R e foco em desenvolvimento regional.</p>
-        <a class="project-link" href="https://github.com/wandersondslima" target="_blank" rel="noopener">Ver no GitHub →</a>
-      </article>
-      <article class="project-card">
-        <div class="project-tags"><span class="badge">Economia</span></div>
-        <h3>Monografia</h3>
-        <p>Trabalho de conclusão do curso de Ciências Econômicas na URCA (2025).</p>
-        <a class="project-link" href="https://github.com/wandersondslima" target="_blank" rel="noopener">Ver no GitHub →</a>
-      </article>
-      <article class="project-card">
-        <div class="project-tags"><span class="badge">Power BI</span><span class="badge">Python</span></div>
-        <h3>Em breve: dashboard de dados</h3>
-        <p>Projeto em desenvolvimento a partir dos cursos de Power BI e Python.</p>
-        <a class="project-link" href="https://github.com/wandersondslima" target="_blank" rel="noopener">Acompanhar →</a>
-      </article>
-    </div>
-  </section>
-
-  <section id="experiencia">
-    <h2>💼 Experiências</h2>
-    <table class="ledger">
-      <tr>
-        <td>jun/2026 – atual</td>
-        <td><strong>Auxiliar Administrativo de Obras</strong><small>Detex</small></td>
-      </tr>
-      <tr>
-        <td>jan/2025 – mar/2026</td>
-        <td><strong>Assistente Financeiro Júnior</strong><small>Bitribut Recuperação Tributária · rotinas financeiras e conciliações</small></td>
-      </tr>
-      <tr>
-        <td>2024</td>
-        <td><strong>Estágio Financeiro/Administrativo</strong><small>URCA</small></td>
-      </tr>
-    </table>
-  </section>
-
-  <section id="formacao">
-    <h2>🎓 Formação</h2>
-    <table class="ledger">
-      <tr>
-        <td>2025</td>
-        <td><strong>Bacharelado em Ciências Econômicas</strong><small>Universidade Regional do Cariri (URCA)</small></td>
-      </tr>
-      <tr>
-        <td>Em andamento</td>
-        <td><strong>Cursos de Power BI e Python</strong><small>Análise de dados</small></td>
-      </tr>
-    </table>
-  </section>
-
-  <section id="contato">
-    <div class="contact-banner">
-      <div>
-        <h2>Vamos conversar?</h2>
-        <p>Aberto a oportunidades em finanças, controladoria, auditoria e análise de dados.</p>
+      <div style="border-left:4px solid #0ea5e9; background-color:#f7fbfe; border-radius:0 12px 12px 0; padding:16px 20px;">
+        <p style="margin:0; color:#3d4557;"><strong style="color:#12172a;">Building a message or post.</strong> Collect the links and images you want to use first, then place them into the chat or editor in the order you prefer.</p>
       </div>
-      <a class="btn" href="mailto:wandersontumblr@gmail.com">Enviar e-mail</a>
+      <div style="border-left:4px solid #22c55e; background-color:#f8fdf9; border-radius:0 12px 12px 0; padding:16px 20px;">
+        <p style="margin:0; color:#3d4557;"><strong style="color:#12172a;">Copying text between apps.</strong> Park the paragraph or snippet, switch windows, and paste it where it belongs without going back to hunt for it.</p>
+      </div>
     </div>
   </section>
 
-</div></main>
+  <section style="margin-top:26px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 16px 0; font-size:clamp(22px, 3.3vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#12172a;">
+      ❓ Common Questions
+    </h2>
 
-<footer>
-  <div class="wrap">© 2026 Francisco Wanderson De Sousa Lima · Crato, Ceará</div>
-</footer>
+    <h3 style="margin:0 0 6px 0; font-size:17.5px; font-weight:700; color:#12172a;">Does Pouchy replace drag and drop?</h3>
+    <p style="margin:0 0 16px 0; color:#3d4557;">No, it works alongside it. You still drag and drop as usual. Pouchy simply gives you a safe place to pause in the middle.</p>
+
+    <h3 style="margin:0 0 6px 0; font-size:17.5px; font-weight:700; color:#12172a;">Will it work with the apps I already use?</h3>
+    <p style="margin:0 0 16px 0; color:#3d4557;">If an app accepts a drag and drop of a file, folder, image, link or piece of text, you can drop it there from the Pouchy shelf.</p>
+
+    <h3 style="margin:0 0 6px 0; font-size:17.5px; font-weight:700; color:#12172a;">Do I need to install anything else?</h3>
+    <p style="margin:0 0 16px 0; color:#3d4557;">No extra setup is needed on your side. Visit the download link, save the file, and open it.</p>
+
+    <h3 style="margin:0 0 6px 0; font-size:17.5px; font-weight:700; color:#12172a;">Is Pouchy free?</h3>
+    <p style="margin:0 0 16px 0; color:#3d4557;">Yes. Pouchy is source available and free to download from its official GitHub page.</p>
+
+    <h3 style="margin:0 0 6px 0; font-size:17.5px; font-weight:700; color:#12172a;">Where do I get updates?</h3>
+    <p style="margin:0; color:#3d4557;">New versions are published on the same page you download from, so keep that link handy.</p>
+  </section>
+
+  <section style="margin-top:26px; background-color:#ffffff; border-radius:18px; padding:clamp(22px, 4vw, 36px); box-shadow:0 4px 18px rgba(20, 24, 36, 0.06);">
+    <h2 style="margin:0 0 16px 0; font-size:clamp(22px, 3.3vw, 28px); font-weight:750; letter-spacing:-0.01em; color:#12172a;">
+      🛠️ For the Curious and the Technical
+    </h2>
+    <p style="margin:0 0 14px 0; color:#3d4557;">
+      Pouchy is written in C# on .NET with WPF for the interface, which is why it feels light and native on Windows. The project is source available on GitHub, so you can read the code, follow how it is built, and see exactly what the program does.
+    </p>
+    <p style="margin:0 0 14px 0; color:#3d4557;">
+      The design leans on Fluent Design principles: soft elevation, rounded surfaces, restrained colour and clean typography. It is meant to look like a natural part of Windows rather than a bolted-on utility window.
+    </p>
+    <p style="margin:0; color:#3d4557;">
+      If you like to tinker, the repository is the right place to start. Everything begins at the same link used for downloading.
+    </p>
+    <p style="margin:20px 0 0 0;">
+      <a class="btn-primary" href="https://github.com/ogovea/Pouchy" style="display:inline-block; padding:14px 30px; font-size:16px; font-weight:700; color:#ffffff; background-image:linear-gradient(135deg, #7c3aed 0%, #22c55e 100%); border-radius:12px; box-shadow:0 8px 20px rgba(124, 58, 237, 0.24); transition:transform 0.15s ease;">
+        ⬇️ Visit the download page
+      </a>
+    </p>
+  </section>
+
+  <section style="margin-top:26px; margin-bottom:20px; background-image:linear-gradient(135deg, #7c3aed 0%, #ec4899 100%); border-radius:18px; padding:clamp(26px, 5vw, 42px); text-align:center; box-shadow:0 14px 30px rgba(124, 58, 237, 0.24);">
+    <h2 style="margin:0 0 12px 0; font-size:clamp(22px, 3.6vw, 30px); font-weight:800; letter-spacing:-0.01em; color:#ffffff;">
+      🫳 Your Shelf Is One Click Away
+    </h2>
+    <p style="margin:0 0 24px 0; font-size:clamp(15.5px, 2.2vw, 17.5px); color:#f5eaff; max-width:600px; margin-left:auto; margin-right:auto;">
+      Stop fighting with drag and drop. Shake your mouse, park whatever you are carrying, and drop it exactly where it belongs.
+    </p>
+    <p style="margin:0;">
+      <a class="btn-primary" href="https://github.com/ogovea/Pouchy" style="display:inline-block; padding:17px 40px; font-size:17.5px; font-weight:700; color:#5b21b6; background-color:#ffffff; border-radius:14px; box-shadow:0 10px 24px rgba(20, 24, 36, 0.18); transition:transform 0.15s ease;">
+        ⬇️ Download Pouchy
+      </a>
+    </p>
+  </section>
+
+</main>
 
 </body>
 </html>
